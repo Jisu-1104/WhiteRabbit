@@ -19,13 +19,11 @@ namespace Platformer
 
         private Rigidbody2D rigidbody;
         private Animator animator;
-        private GameManager gameManager;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
 
         private void FixedUpdate()
@@ -76,25 +74,15 @@ namespace Platformer
             isGrounded = colliders.Length > 1;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.tag == "Enemy")
-            {
-                deathState = true; // Say to GameManager that player is dead
-            }
-            else
-            {
-                deathState = false;
-            }
-        }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Coin")
-            {
-                gameManager.coinsCounter += 1;
-                Destroy(other.gameObject);
-            }
-        }
+        //private void OnTriggerEnter2D(Collider2D other)
+        //{
+        //    if (other.gameObject.tag == "suwhaObject")
+        //    {
+                //mediapipe 함수 불러오기
+                // if ㄱ을 인식하면
+       //             Destroy(other.gameObject);
+       //     }
+       // }
     }
 }
