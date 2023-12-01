@@ -1,0 +1,271 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.13f1 (5f90a5ebde0f) revision 6262949'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 8104 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/rlawl/Captstone/Demo
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50564
+Successfully changed project path to: C:/Users/rlawl/Captstone/Demo
+C:/Users/rlawl/Captstone/Demo
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8560] Host "[IP] 10.200.31.166 [Port] 0 [Flags] 2 [Guid] 1648705434 [EditorId] 1648705434 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DKP6TF7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [8560] Host "[IP] 10.200.31.166 [Port] 0 [Flags] 2 [Guid] 1648705434 [EditorId] 1648705434 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-DKP6TF7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 36.13 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.13f1 (5f90a5ebde0f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/rlawl/Captstone/Demo/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
+    Vendor:   Intel
+    VRAM:     4052 MB
+    Driver:   27.20.100.8730
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.028143 seconds.
+- Loaded All Assemblies, in  1.066 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.691 seconds
+Domain Reload Profiling: 1754ms
+	BeginReloadAssembly (334ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (128ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (161ms)
+	LoadAllAssembliesAndSetupDomain (412ms)
+		LoadAssemblies (328ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (407ms)
+			TypeCache.Refresh (404ms)
+				TypeCache.ScanAssembly (366ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (692ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (541ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (14ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (363ms)
+			ProcessInitializeOnLoadMethodAttributes (133ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.053 seconds
+Refreshing native plugins compatible for Editor in 14.37 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.921 seconds
+Domain Reload Profiling: 3964ms
+	BeginReloadAssembly (392ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (50ms)
+	RebuildCommonClasses (106ms)
+	RebuildNativeTypeToScriptingClass (32ms)
+	initialDomainReloadingComplete (107ms)
+	LoadAllAssembliesAndSetupDomain (1405ms)
+		LoadAssemblies (1075ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (572ms)
+			TypeCache.Refresh (500ms)
+				TypeCache.ScanAssembly (458ms)
+			ScanForSourceGeneratedMonoScriptInfo (57ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1922ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1518ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (170ms)
+			ProcessInitializeOnLoadAttributes (1203ms)
+			ProcessInitializeOnLoadMethodAttributes (93ms)
+			AfterProcessingInitializeOnLoad (19ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Refreshing native plugins compatible for Editor in 9.56 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4022 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 70 unused Assets / (244.3 KB). Loaded Objects now: 4497.
+Memory consumption went from 154.4 MB to 154.2 MB.
+Total: 9.918700 ms (FindLiveObjects: 0.489500 ms CreateObjectMapping: 0.940300 ms MarkObjects: 7.762800 ms  DeleteObjects: 0.721200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 53829.245968 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '691bb7e8c2cfd57c5288e913886d5df3') in 0.308410 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 51.017830 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89037a61ec91da4c8ff6c68531cd8ef7') in 0.036075 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 30.416834 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e125b117959d64605c86e49578afbf9a') in 0.037897 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 5.549074 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '777677997762a7c84fbbcb3eb3a16152') in 0.036605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 40
+========================================================================
+Received Import Request.
+  Time since last request: 49.935676 seconds.
+  path: Assets/2D Platformer/Assets/spikes.png
+  artifactKey: Guid(2619d8d2089663a478ac3035deedf2d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/spikes.png using Guid(2619d8d2089663a478ac3035deedf2d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dea5059ccfd9eafb735b50e4e4b29910') in 0.077540 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 67.905253 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5ef7bfb1610550993b63bef4f1b5035') in 0.039700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 1.595114 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08e4eaac79eb6a3c51756123c4ec4508') in 0.040786 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 1.615862 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2acd1307831fd37602cdfe89272ae978') in 0.038299 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 2.053065 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f421441d3afb30b20e2681eee1e4c45') in 0.037014 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 1.428013 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3234f1423dbc09406135d26dce3e7819') in 0.039141 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 5.889973 seconds.
+  path: Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab
+  artifactKey: Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/2D Platformer/Assets/TilePalette/TilePalette.prefab using Guid(1d2fee16f287042498727251c23af1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '509a83be58df85dcea6a0532bcdd4d7e') in 0.041899 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 43
