@@ -78,26 +78,32 @@ namespace Mediapipe.Unity.Sample.HandTracking
             if (runningMode == RunningMode.Sync)
             {
                 var _ = graphRunner.TryGetNext(out palmDetections, out handRectsFromPalmDetections, out handLandmarks, out handWorldLandmarks, out handRectsFromLandmarks, out handedness, true);
+
+                if (Input.GetKey(KeyCode.Escape))
+                {
+                    if (handLandmarks != null && handLandmarks.Count > 0)
+                    {
+                        for (int i = 0; i < 21; i++)
+                        {
+                            foreach (var landmarks in handLandmarks)
+                            {
+                                // top of the head
+                                var landmarkposition = landmarks.Landmark[i];
+                                Debug.Log($"Unity Local Coordinates: {landmarkposition}");
+                            }
+                        }
+
+                    }
+                }
+ 
+            
             }
 
             else if (runningMode == RunningMode.NonBlockingSync)
             {
                 yield return new WaitUntil(() => graphRunner.TryGetNext(out palmDetections, out handRectsFromPalmDetections, out handLandmarks, out handWorldLandmarks, out handRectsFromLandmarks, out handedness, false));
             }
-            
-                if (handLandmarks != null && handLandmarks.Count > 0)
-                {
-                    for (int i = 0; i < 21; i++)
-                    {
-                        foreach (var landmarks in handLandmarks)
-                        {
-                            // top of the head
-                            var landmarkposition = landmarks.Landmark[i];
-                            Debug.Log($"Unity Local Coordinates: {landmarkposition}");
-                        }
-                    }
-
-                }
+             
 
        
 
