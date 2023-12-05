@@ -89,7 +89,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
                             {
                                 // top of the head
                                 var landmarkposition = landmarks.Landmark[i];
-                                Debug.Log($"Unity Local Coordinates: {landmarkposition}");
+                                Debug.Log($"{i} : {landmarkposition}");
                             }
                         }
 
@@ -138,5 +138,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
     {
       _handLandmarksAnnotationController.DrawLater(eventArgs.value);
     }
-  }
+
+        
+    }
 }
