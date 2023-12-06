@@ -12,6 +12,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
 {
   public class HandTrackingSolution : ImageSourceSolution<HandTrackingGraph>
   {
+
     [SerializeField] private DetectionListAnnotationController _palmDetectionsAnnotationController;
     [SerializeField] private NormalizedRectListAnnotationController _handRectsFromPalmDetectionsAnnotationController;
     [SerializeField] private MultiHandLandmarkListAnnotationController _handLandmarksAnnotationController;
@@ -89,7 +90,8 @@ namespace Mediapipe.Unity.Sample.HandTracking
                             {
                                 // top of the head
                                 var landmarkposition = landmarks.Landmark[i];
-                                Debug.Log($"{i} : {landmarkposition}");
+                                string lmp = landmarkposition.ToString();
+                                Debug.Log($"{i} : {lmp}");
                             }
                         }
 
