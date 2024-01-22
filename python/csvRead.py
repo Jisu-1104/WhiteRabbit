@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import time
 
 # 빈 리스트를 생성하여 데이터를 저장할 준비
 rawdata = []
@@ -22,36 +23,40 @@ with open(r'C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\Assets\example.csv
             for i in range(21):  
                 rawdata.append(column_data[i])
                 column_data[i] = []
+            # 리스트를 NumPy 배열로 변환
+            joint = np.array(rawdata)
+            print(joint)
+            print(rawdata)
 
-# 리스트를 NumPy 배열로 변환
-joint= np.array(rawdata)
+            # 벡터를 구하기 위해 생성하는 v1,v2 (v2에서 v2을 빼면 v백터가 된다)
+            v1 = joint[[0,1,2,3,0,5,6,7,0, 9,10,11, 0,13,14,15, 0,17,18,19],:] 
+            v2 = joint[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],:]
 
-# 벡터를 구하기 위해 생성하는 v1,v2 (v2에서 v2을 빼면 v백터가 된다)
-v1 = joint[[0,1,2,3,0,5,6,7,0, 9,10,11, 0,13,14,15, 0,17,18,19],:] 
-v2 = joint[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],:]
+            # 정규화
+            v = v2-v1
+            v = v / np.linalg.norm(v,axis=1)[:,np.newaxis]
 
-# 정규화
-v = v2-v1
-v = v / np.linalg.norm(v,axis=1)[:,np.newaxis]
+            #각 벡터의 각도를 비교하기 위해 생성하는 compare벡터
+            compareV1 = v[[0,1,2,4,5,6,8,9,10,12,13,14,16,17,18],:] 
+            compareV2 = v[[1,2,3,5,6,7,9,10,11,13,14,15,17,18,19],:]
 
-#각 벡터의 각도를 비교하기 위해 생성하는 compare벡터
-compareV1 = v[[0,1,2,4,5,6,8,9,10,12,13,14,16,17,18],:] 
-compareV2 = v[[1,2,3,5,6,7,9,10,11,13,14,15,17,18,19],:]
+            # compare벡터를 사용하여 각도를 구함
+            angle = np.arccos(np.einsum('nt,nt->n',compareV1,compareV2)) 
+            angle = np.degrees(angle)
 
-# compare벡터를 사용하여 각도를 구함
-angle = np.arccos(np.einsum('nt,nt->n',compareV1,compareV2)) 
-angle = np.degrees(angle)
+            #dataset 저장할 파일 만들기
+            f = open(r'test.txt', 'a')
 
-#dataset 저장할 파일 만들기
-f = open(r'test.txt', 'a')
+            #파일에 dataset 집어넣기
+            for i in angle :
+                num = round(i, 6)
+                f.write(str(num))
+                f.write(',')
+            f.write("0.000000") #gesture 번호
+            f.write("\n")
 
-#파일에 dataset 집어넣기
-for i in angle :
-    num = round(i, 6)
-    f.write(str(num))
-    f.write(',')
-f.write("0.000000") #gesture 번호
-f.write("\n")
+            f.close();
+            rawdata = []
 
-f.close();
+
 
