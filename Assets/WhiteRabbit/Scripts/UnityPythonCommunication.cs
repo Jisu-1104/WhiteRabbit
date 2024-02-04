@@ -1,14 +1,18 @@
-using UnityEngine;
+using Mediapipe.Unity.Sample.HandTracking;
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using UnityEngine;
 
 public class UnityPythonCommunication : MonoBehaviour
 {
     private TcpClient client;
     private NetworkStream stream;
+
+    // HandTrackingSolution 인스턴스
+    HandTrackingSolution handTrackingSolution;
 
     void Start()
     {
@@ -16,8 +20,7 @@ public class UnityPythonCommunication : MonoBehaviour
         {
             Process psi = new Process();
             psi.StartInfo.FileName = @"python";
-            //아래 문서 경로를 자기 파일 위치에 맞게 수정해야 함!!
-            psi.StartInfo.Arguments = @"C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\python\UnityPythonCommunication.py";
+            psi.StartInfo.Arguments = @"C:\Users\Admin\Documents\GitHub\WhiteRabbit\python\GestureRecognition.py";
             psi.StartInfo.CreateNoWindow = true;
             psi.StartInfo.UseShellExecute = false;
             psi.Start();
@@ -26,23 +29,30 @@ public class UnityPythonCommunication : MonoBehaviour
         {
             UnityEngine.Debug.LogError("Unable to launch app: " + e.Message);
         }
+
         ConnectToPython();
+
+        // HandTrackingSolution 인스턴스 생성
+        handTrackingSolution = FindObjectOfType<HandTrackingSolution>();
     }
 
     void Update()
     {
-        SendIntToPython(42); // 예시로 42를 보냄
+        // HandTrackingSolution의 GetLmDataString 메서드를 호출하여 lmDataString 값을 가져옴
+        string lmDataString = handTrackingSolution.GetLmDataString();
+
+        // 가져온 lmDataString 값을 Python으로 전송
+        SendStringToPython(lmDataString);
     }
 
     void ConnectToPython()
     {
         try
         {
-            client = new TcpClient("127.0.0.1", 8888); // Python 서버 주소 및 포트
+            client = new TcpClient("127.0.0.1", 8888);
             stream = client.GetStream();
             UnityEngine.Debug.Log("Connected to Python");
 
-            // 백그라운드 스레드에서 메시지 수신을 처리
             Thread receiveThread = new Thread(ReceiveMessagesFromPython);
             receiveThread.Start();
         }
@@ -52,12 +62,11 @@ public class UnityPythonCommunication : MonoBehaviour
         }
     }
 
-    void SendIntToPython(int intValue)
+    void SendStringToPython(string stringValue)
     {
-        string message = intValue.ToString(); // int를 문자열로 변환
-        byte[] data = Encoding.ASCII.GetBytes(message);
+        byte[] data = Encoding.ASCII.GetBytes(stringValue);
         stream.Write(data, 0, data.Length);
-        UnityEngine.Debug.Log($"Sent int to Python: {intValue}");
+        UnityEngine.Debug.Log($"Sent string to Python: {stringValue}");
     }
 
     void ReceiveMessagesFromPython()
@@ -69,8 +78,7 @@ public class UnityPythonCommunication : MonoBehaviour
             if (bytesRead > 0)
             {
                 string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                int receivedInt = int.Parse(response); // 문자열을 int로 변환
-                UnityEngine.Debug.Log($"Received int from Python: {receivedInt}");
+                UnityEngine.Debug.Log($"Received message from Python: {response}");
             }
         }
     }

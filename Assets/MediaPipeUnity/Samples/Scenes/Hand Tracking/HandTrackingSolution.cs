@@ -6,8 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using UnityEditor;
+using System.Linq;
 using UnityEngine;
 
 namespace Mediapipe.Unity.Sample.HandTracking
@@ -20,7 +19,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
         [SerializeField] private MultiHandLandmarkListAnnotationController _handLandmarksAnnotationController;
         [SerializeField] private NormalizedRectListAnnotationController _handRectsFromLandmarksAnnotationController;
 
-        private List<string[]> data = new List<string[]>();
+        public List<string[]> data = new List<string[]>();
         public HandTrackingGraph.ModelComplexity modelComplexity
         {
             get => graphRunner.modelComplexity;
@@ -69,49 +68,6 @@ namespace Mediapipe.Unity.Sample.HandTracking
         {
             graphRunner.AddTextureFrameToInputStream(textureFrame);
         }
-        void SaveCSV(string oldfileName)
-        {
-            string newFileName = oldfileName;
-            //string[] allFiles = AssetDatabase.GetAllAssetPaths();
-            //HashSet<string> uniqueNames = new HashSet<string>();
-
-            //foreach (string oldfilePath in allFiles)
-            //{
-            //    string fileName = Path.GetFileNameWithoutExtension(oldfilePath);
-            //    uniqueNames.Add(fileName);
-            //}
-            //if (!uniqueNames.Add(oldfileName))
-            //{
-            //    // 파일명이 중복되면 새로운 이름 생성
-            //    int count = 1;
-            //    newFileName = oldfileName;
-
-            //    while (!uniqueNames.Add(newFileName))
-            //    {
-            //        newFileName = $"{oldfileName}_{count}";
-            //        count++;
-            //    }
-
-            //}
-
-            //AssetDatabase.Refresh();
-
-
-            // 파일 경로 설정
-            string filePath = Path.Combine(Application.dataPath, newFileName +".csv");
-
-            // CSV 파일에 데이터 쓰기
-            StreamWriter outStream = System.IO.File.CreateText(filePath);
-
-            for (int i = 0; i < data.Count; i++)
-            {
-                string line = string.Join(",", data[i]);
-                outStream.WriteLine(line);
-            }
-
-            outStream.Close();
-            Debug.Log("CSV 파일이 성공적으로 저장되었습니다.");
-        }
         protected override IEnumerator WaitForNextValue()
         {
             List<Detection> palmDetections = null;
@@ -128,30 +84,31 @@ namespace Mediapipe.Unity.Sample.HandTracking
 
                 if (Input.GetKey(KeyCode.Escape))
                 {
-                    string[] lmdDataX = new string[21];
-                    string[] lmdDataY = new string[21];
-                    string[] lmdDataZ = new string[21];
+                    string[] lmDataX = new string[21];
+                    string[] lmDataY = new string[21];
+                    string[] lmDataZ = new string[21];
                     if (handLandmarks != null && handLandmarks.Count > 0)
                     {
+                        data.Clear();
                         for (int i = 0; i < 21; i++)
                         {
                             foreach (var landmarks in handLandmarks)
                             {
                                 // top of the head
                                 var landmarkposition = landmarks.Landmark[i];
-                                lmdDataX[i] = landmarkposition.X.ToString();
-                                lmdDataY[i] = landmarkposition.Y.ToString();
-                                lmdDataZ[i] = landmarkposition.Z.ToString();
+                                lmDataX[i] = landmarkposition.X.ToString();
+                                lmDataY[i] = landmarkposition.Y.ToString();
+                                lmDataZ[i] = landmarkposition.Z.ToString();
 
-                                Debug.Log($"{i} : {lmdDataX[i]} , {lmdDataY[i]} , {lmdDataZ[i]}");
+                                //Debug.Log($"{i} : {lmdDataX[i]} , {lmdDataY[i]} , {lmdDataZ[i]}");
                             }
                         }
-                        data.Add(lmdDataX);
-                        data.Add(lmdDataY);
-                        data.Add(lmdDataZ);
+                        data.Add(lmDataX);
+                        data.Add(lmDataY);
+                        data.Add(lmDataZ);
+
+                        Debug.Log("line: " + GetLmDataString());
                     }
-                                 
-                    SaveCSV("example");
                 }
 
             }
@@ -169,6 +126,17 @@ namespace Mediapipe.Unity.Sample.HandTracking
             _handLandmarksAnnotationController.DrawNow(handLandmarks, handedness);
             // TODO: render HandWorldLandmarks annotations
             _handRectsFromLandmarksAnnotationController.DrawNow(handRectsFromLandmarks);
+        }
+        public string GetLmDataString()
+        {
+            // data 리스트가 비어있는 경우 빈 문자열 반환
+            if (data.Count == 0)
+            {
+                return "";
+            }
+
+            // 리스트의 배열들을 합쳐서 문자열로 변환하여 반환
+            return string.Join(",", data.SelectMany(arr => arr));
         }
 
         private void OnPalmDetectionsOutput(object stream, OutputEventArgs<List<Detection>> eventArgs)
