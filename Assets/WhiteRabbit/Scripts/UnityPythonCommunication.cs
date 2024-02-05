@@ -20,10 +20,12 @@ public class UnityPythonCommunication : MonoBehaviour
         {
             Process psi = new Process();
             psi.StartInfo.FileName = @"python";
-            psi.StartInfo.Arguments = @"C:\Users\Admin\Documents\GitHub\WhiteRabbit\python\GestureRecognition.py";
+            psi.StartInfo.Arguments = @"C:\Users\rlawl\OneDrive\¹®¼­\GitHub\WhiteRabbit\python\GestureRecognition.py";
             psi.StartInfo.CreateNoWindow = true;
             psi.StartInfo.UseShellExecute = false;
+            psi.StartInfo.RedirectStandardOutput = true;
             psi.Start();
+
         }
         catch (Exception e)
         {
@@ -64,7 +66,7 @@ public class UnityPythonCommunication : MonoBehaviour
 
     void SendStringToPython(string stringValue)
     {
-        byte[] data = Encoding.ASCII.GetBytes(stringValue);
+        byte[] data = Encoding.UTF8.GetBytes(stringValue);
         stream.Write(data, 0, data.Length);
         UnityEngine.Debug.Log($"Sent string to Python: {stringValue}");
     }
@@ -77,7 +79,7 @@ public class UnityPythonCommunication : MonoBehaviour
             int bytesRead = stream.Read(buffer, 0, buffer.Length);
             if (bytesRead > 0)
             {
-                string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 UnityEngine.Debug.Log($"Received message from Python: {response}");
             }
         }
