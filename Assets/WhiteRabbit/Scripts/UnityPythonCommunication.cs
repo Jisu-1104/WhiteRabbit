@@ -21,7 +21,7 @@ public class UnityPythonCommunication : MonoBehaviour
             Process psi = new Process();
             psi.StartInfo.FileName = @"python";
             psi.StartInfo.Arguments = @"C:\Users\rlawl\OneDrive\¹®¼­\GitHub\WhiteRabbit\python\GestureRecognition.py";
-            psi.StartInfo.CreateNoWindow = true;
+            psi.StartInfo.CreateNoWindow = false;
             psi.StartInfo.UseShellExecute = false;
             psi.StartInfo.RedirectStandardOutput = true;
             psi.Start();
