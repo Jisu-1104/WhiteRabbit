@@ -21,8 +21,6 @@ def start_server():
 
     while True:
         data = conn.recv(4096)
-        if not data:
-            break
         message = data.decode('ascii')
 
         # Process the data (modify as needed)

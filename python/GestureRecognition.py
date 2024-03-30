@@ -26,14 +26,12 @@ def start_server(model):
     try:
         while True:
             data = conn.recv(4096)
-            if not data:
-                break
-            message = data.decode('utf-8')
-
-            angles = process_landmark_data(message)
-            if angles is not None:
-                predicted_gesture = predict_gesture(model, angles)
-                conn.send(predicted_gesture.encode('utf-8'))
+            if data is not None :
+                message = data.decode('utf-8')
+                angles = process_landmark_data(message)
+                if angles is not None:
+                    predicted_gesture = predict_gesture(model, angles)
+                    conn.send(predicted_gesture.encode('utf-8'))
 
     except Exception as e:
         print(f"An error occurred: {e}")

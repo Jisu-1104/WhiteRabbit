@@ -14,7 +14,7 @@ public class UnityPythonCommunication : MonoBehaviour
     // HandTrackingSolution 인스턴스
     HandTrackingSolution handTrackingSolution;
 
-    void Start()
+    void Awake()
     {
         try
         {

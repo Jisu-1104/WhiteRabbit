@@ -52,7 +52,7 @@ with open(r'C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\Assets\None.csv', 
                 num = round(i, 6)
                 f.write(str(num))
                 f.write(',')
-            f.write("31.000000") #gesture 번호
+            f.write("7.000000") #gesture 번호
             f.write("\n")
 
             f.close();
