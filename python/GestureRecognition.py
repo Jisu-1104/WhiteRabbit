@@ -77,7 +77,7 @@ def predict_gesture(model, input_data):
         # 결과를 정수로 변환하여 해당하는 제스처를 찾음
         predicted_label = int(result[0, 0])
 
-        # 제스처에 대한 응답 출a력
+        # 제스처에 대한 응답 출력
         gesture_response = get_gesture_response(predicted_label)
         print(f"Predicted Gesture: {gesture_response}")
 

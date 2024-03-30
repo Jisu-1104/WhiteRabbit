@@ -6,7 +6,7 @@ import time
 rawdata = []
 
 # CSV 파일 읽기. 파일 이름은 다를 수 있다. 
-with open(r'C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\Assets\example.csv', newline='') as csvfile:
+with open(r'C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\Assets\None.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
     
     # 각 열의 값을 담을 리스트 초기화

@@ -102,6 +102,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
 
                 if (Input.GetKey(KeyCode.Escape))
                 {
+                    data.Clear();
                     string[] lmDataX = new string[21];
                     string[] lmDataY = new string[21];
                     string[] lmDataZ = new string[21];
@@ -122,10 +123,11 @@ namespace Mediapipe.Unity.Sample.HandTracking
                         data.Add(lmDataY);
                         data.Add(lmDataZ);
 
-                        Debug.Log("line: " + GetLmDataString());
+                        //Debug.Log("line: " + GetLmDataString());
                     }
-                    SaveCSV("None");
+                    //SaveCSV("None");
                 }
+                
 
             }
 
