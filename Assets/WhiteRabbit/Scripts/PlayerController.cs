@@ -8,6 +8,8 @@ namespace Platformer
     {
         public float movingSpeed;
         public float jumpForce;
+        public string alphabet;
+
         private float moveInput;
 
         private bool facingRight = false;
@@ -74,15 +76,19 @@ namespace Platformer
             isGrounded = colliders.Length > 1;
         }
 
+        public void setAlphabet(string alpha)
+        {
+            alphabet = alpha;
+        }
 
         //private void OnTriggerEnter2D(Collider2D other)
         //{
         //    if (other.gameObject.tag == "suwhaObject")
         //    {
-                //mediapipe 함수 불러오기
-                // if ㄱ을 인식하면
-       //             Destroy(other.gameObject);
-       //     }
-       // }
+        //mediapipe 함수 불러오기
+        // if ㄱ을 인식하면
+        //             Destroy(other.gameObject);
+        //     }
+        // }
     }
 }

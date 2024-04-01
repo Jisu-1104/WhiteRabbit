@@ -5208,8 +5208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1701076005}
-  followDistance: -2
-  delay: 0.5
+  smoothSpeed: 0.125
+  followDistance: 2
 --- !u!212 &615222314
 SpriteRenderer:
   m_ObjectHideFlags: 0
