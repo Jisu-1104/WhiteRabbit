@@ -45,14 +45,14 @@ with open(r'C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\Assets\example.csv
             angle = np.degrees(angle)
 
             #dataset 저장할 파일 만들기
-            f = open(r'test.txt', 'a')
+            f = open(r'dataset.txt', 'a')
 
             #파일에 dataset 집어넣기
             for i in angle :
                 num = round(i, 6)
                 f.write(str(num))
                 f.write(',')
-            f.write("30.000000") #gesture 번호
+            f.write("31.000000") #gesture 번호
             f.write("\n")
 
             f.close();

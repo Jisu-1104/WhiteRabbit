@@ -1,4 +1,5 @@
 using Mediapipe.Unity.Sample.HandTracking;
+using Platformer;
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
@@ -10,17 +11,22 @@ public class UnityPythonCommunication : MonoBehaviour
 {
     private TcpClient client;
     private NetworkStream stream;
+    public PlayerController playerController;
 
     // HandTrackingSolution 인스턴스
     HandTrackingSolution handTrackingSolution;
 
+    private void Awake()
+    {
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+    }
     void Start()
     {
         try
         {
             Process psi = new Process();
             psi.StartInfo.FileName = @"python";
-            psi.StartInfo.Arguments = @"C:\Users\rlawl\OneDrive\문서\GitHub\WhiteRabbit\python\GestureRecognition.py";
+            psi.StartInfo.Arguments = @"C:\Users\Admin\Documents\GitHub\WhiteRabbit\python\GestureRecognition.py";
             psi.StartInfo.CreateNoWindow = false;
             psi.StartInfo.UseShellExecute = false;
             psi.StartInfo.RedirectStandardOutput = true;
@@ -80,6 +86,7 @@ public class UnityPythonCommunication : MonoBehaviour
             if (bytesRead > 0)
             {
                 string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                playerController.setAlphabet(response);
                 UnityEngine.Debug.Log($"Received message from Python: {response}");
             }
         }

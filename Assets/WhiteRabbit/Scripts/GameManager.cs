@@ -7,12 +7,10 @@ namespace Platformer
 {
     public class GameManager : MonoBehaviour
     {
-        public int coinsCounter = 0;
 
         public GameObject playerGameObject;
         private PlayerController player;
         public GameObject deathPlayerPrefab;
-        public Text coinText;
 
         void Start()
         {
