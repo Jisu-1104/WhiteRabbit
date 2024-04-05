@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using UnityEngine;
 
 namespace Mediapipe.Unity.Sample.HandTracking
@@ -68,6 +69,23 @@ namespace Mediapipe.Unity.Sample.HandTracking
         {
             graphRunner.AddTextureFrameToInputStream(textureFrame);
         }
+
+        void SaveCSV(string fileName)
+        {
+            string newFileName = fileName;
+            string filePath = Path.Combine(Application.dataPath, newFileName + ".csv");
+
+            StreamWriter outStream = File.CreateText(filePath);
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                string line = string.Join(",", data[i]);
+                outStream.WriteLine(line);
+            }
+
+            outStream.Close();
+            Debug.Log("CSV saved.");
+        }
         protected override IEnumerator WaitForNextValue()
         {
             List<Detection> palmDetections = null;
@@ -84,32 +102,32 @@ namespace Mediapipe.Unity.Sample.HandTracking
 
                 if (Input.GetKey(KeyCode.Escape))
                 {
+                    data.Clear();
                     string[] lmDataX = new string[21];
                     string[] lmDataY = new string[21];
                     string[] lmDataZ = new string[21];
                     if (handLandmarks != null && handLandmarks.Count > 0)
                     {
-                        data.Clear();
                         for (int i = 0; i < 21; i++)
                         {
                             foreach (var landmarks in handLandmarks)
                             {
-                                // top of the head
                                 var landmarkposition = landmarks.Landmark[i];
                                 lmDataX[i] = landmarkposition.X.ToString();
                                 lmDataY[i] = landmarkposition.Y.ToString();
                                 lmDataZ[i] = landmarkposition.Z.ToString();
-
-                                //Debug.Log($"{i} : {lmdDataX[i]} , {lmdDataY[i]} , {lmdDataZ[i]}");
                             }
                         }
+                        
                         data.Add(lmDataX);
                         data.Add(lmDataY);
                         data.Add(lmDataZ);
 
-                        Debug.Log("line: " + GetLmDataString());
+                        //Debug.Log("line: " + GetLmDataString());
                     }
+                    //SaveCSV("None");
                 }
+                
 
             }
 
