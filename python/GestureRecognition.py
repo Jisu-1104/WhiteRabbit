@@ -8,7 +8,8 @@ def get_gesture_response(label):
         0: 'ㄱ', 1: 'ㄴ', 2: 'ㄷ', 3: 'ㄹ', 4: 'ㅁ', 5: 'ㅂ', 6: 'ㅅ', 7: 'ㅇ',
         8: 'ㅈ', 9: 'ㅊ', 10: 'ㅋ', 11: 'ㅌ', 12: 'ㅍ', 13: 'ㅎ', 14: 'ㅏ', 15: 'ㅑ',
         16: 'ㅓ', 17: 'ㅕ', 18: 'ㅗ', 19: 'ㅛ', 20: 'ㅜ', 21: 'ㅠ', 22: 'ㅡ', 23: 'ㅣ',
-        24: 'ㅐ', 25: 'ㅒ', 26: 'ㅔ', 27: 'ㅖ', 28: 'ㅢ', 29: 'ㅚ', 30: 'ㅟ'
+        24: 'ㅐ', 25: 'ㅒ', 26: 'ㅔ', 27: 'ㅖ', 28: 'ㅢ', 29: 'ㅚ', 30: 'ㅟ',
+        31: "None"
     }
 
     return gesture_mapping.get(label, "Unknown Gesture")
@@ -26,14 +27,12 @@ def start_server(model):
     try:
         while True:
             data = conn.recv(4096)
-            if not data:
-                break
-            message = data.decode('utf-8')
-
-            angles = process_landmark_data(message)
-            if angles is not None:
-                predicted_gesture = predict_gesture(model, angles)
-                conn.send(predicted_gesture.encode('utf-8'))
+            if data is not None :
+                message = data.decode('utf-8')
+                angles = process_landmark_data(message)
+                if angles is not None:
+                    predicted_gesture = predict_gesture(model, angles)
+                    conn.send(predicted_gesture.encode('utf-8'))
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -77,7 +76,7 @@ def predict_gesture(model, input_data):
         # 결과를 정수로 변환하여 해당하는 제스처를 찾음
         predicted_label = int(result[0, 0])
 
-        # 제스처에 대한 응답 출a력
+        # 제스처에 대한 응답 출력
         gesture_response = get_gesture_response(predicted_label)
         print(f"Predicted Gesture: {gesture_response}")
 
