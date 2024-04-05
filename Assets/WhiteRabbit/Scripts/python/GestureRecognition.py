@@ -30,7 +30,7 @@ def start_server(model):
             if data is not None :
                 message = data.decode('utf-8')
                 angles = process_landmark_data(message)
-                if angles is not None:
+                if angles is not None :
                     predicted_gesture = predict_gesture(model, angles)
                     conn.send(predicted_gesture.encode('utf-8'))
 
@@ -39,7 +39,6 @@ def start_server(model):
 
     finally:
         conn.close()
-        server.close()
 
 
 def load_trained_model(model_filepath):

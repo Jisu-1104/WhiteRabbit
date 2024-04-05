@@ -24,9 +24,10 @@ public class UnityPythonCommunication : MonoBehaviour
     {
         try
         {
+            string loc = System.IO.Directory.GetCurrentDirectory();
             Process psi = new Process();
             psi.StartInfo.FileName = @"python";
-            psi.StartInfo.Arguments = @"C:\Users\Admin\Documents\GitHub\WhiteRabbit\python\GestureRecognition.py";
+            psi.StartInfo.Arguments = @"C:\Users\rlawl\OneDrive\¹®¼­\GitHub\WhiteRabbit\Assets\WhiteRabbit\Scripts\python\GestureRecognition.py";
             psi.StartInfo.CreateNoWindow = false;
             psi.StartInfo.UseShellExecute = false;
             psi.StartInfo.RedirectStandardOutput = true;
