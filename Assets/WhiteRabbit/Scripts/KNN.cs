@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 using Mediapipe.Unity.Sample.HandTracking;
 
 public class KNNPrediction : MonoBehaviour
@@ -15,15 +16,11 @@ public class KNNPrediction : MonoBehaviour
         // HandTrackingSolution 클래스의 인스턴스 찾기
         handTrackingSolution = FindObjectOfType<HandTrackingSolution>();
 
-        // 빌드된 애플리케이션의 기본 경로를 가져옵니다.
-        string basePath = Application.dataPath;
-
         // 상대 경로를 사용하여 모델 파일의 경로를 설정합니다.
-        string modelRelativePath = @"WhiteRabbit/Scripts/python/dataset.txt";
-        string modelFilePath = Path.Combine(basePath, modelRelativePath);
+        string modelRelativePath = @"Assets/WhiteRabbit/Scripts/python/dataset.txt";
 
         // 학습된 모델 로드
-        LoadTrainedModelFromResources(modelFilePath);
+        LoadTrainedModelFromResources(modelRelativePath);
     }
     void Update()
     {
@@ -56,6 +53,7 @@ public class KNNPrediction : MonoBehaviour
 
     private void LoadTrainedModelFromResources(string modelFilePath)
     {
+        
         try
         {
             TextAsset modelFile = AssetDatabase.LoadAssetAtPath<TextAsset>(modelFilePath);
@@ -64,8 +62,8 @@ public class KNNPrediction : MonoBehaviour
                 Debug.LogError($"Failed to load model file: {modelFilePath}");
                 return;
             }
-
-            string[] lines = modelFile.text.Split('\n');
+            string temp = modelFile.text.Replace("\r", "");
+            string[] lines = temp.Split('\n');
             int rowCount = lines.Length;
 
             // 데이터 배열 초기화
@@ -77,16 +75,20 @@ public class KNNPrediction : MonoBehaviour
             {
                 string[] values = lines[i].Split(',');
                 angles[i] = new float[values.Length - 1];
-                for (int j = 0; j < values.Length - 1; j++)
+                if (values.Length > 2)
                 {
-                    angles[i][j] = float.Parse(values[j]);
+                    for (int j = 0; j < values.Length - 2; j++)
+                    {
+                        if (values[j] == "") continue;
+                        angles[i][j] = float.Parse(values[j]);
+                    }
+                    labels[i] = (int)float.Parse(values[values.Length - 1]);
                 }
-                labels[i] = int.Parse(values[values.Length - 1]);
             }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Failed to load the trained model: {e}");
+            Debug.LogError($"Failed to load the trained model: {e}");        
         }
     }
 
