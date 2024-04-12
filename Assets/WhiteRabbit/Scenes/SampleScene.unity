@@ -637,7 +637,6 @@ GameObject:
   - component: {fileID: 478138660}
   - component: {fileID: 478138662}
   - component: {fileID: 478138661}
-  - component: {fileID: 478138664}
   m_Layer: 0
   m_Name: Solution
   m_TagString: Untagged
@@ -712,18 +711,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1656834079}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &478138664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478138659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2905,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 23.181118, y: 14.4}
   m_EdgeRadius: 0
+--- !u!114 &1340424159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340424156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1545372720}
 --- !u!1 &1368144885
 GameObject:
   m_ObjectHideFlags: 0
@@ -23634,6 +23634,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 850429430245377692, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1340424158}
+    - targetCorrespondingSourceObject: {fileID: 850429430245377692, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340424159}
   m_SourcePrefab: {fileID: 100100000, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
 --- !u!1001 &1396066811
 PrefabInstance:
@@ -23784,6 +23787,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   annotation: {fileID: 1400654709}
+--- !u!1 &1545372720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6952628394585513906, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
+  m_PrefabInstance: {fileID: 430567067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1656834078
 GameObject:
   m_ObjectHideFlags: 0

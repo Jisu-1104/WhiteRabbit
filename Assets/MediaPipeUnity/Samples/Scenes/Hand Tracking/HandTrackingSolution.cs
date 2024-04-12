@@ -100,8 +100,6 @@ namespace Mediapipe.Unity.Sample.HandTracking
             {
                 var _ = graphRunner.TryGetNext(out palmDetections, out handRectsFromPalmDetections, out handLandmarks, out handWorldLandmarks, out handRectsFromLandmarks, out handedness, true);
 
-                if (Input.GetKey(KeyCode.Escape))
-                {
                     data.Clear();
                     string[] lmDataX = new string[21];
                     string[] lmDataY = new string[21];
@@ -126,9 +124,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
                         //Debug.Log("line: " + GetLmDataString());
                     }
                     //SaveCSV("None");
-                }
-                
-
+            
             }
 
             else if (runningMode == RunningMode.NonBlockingSync)

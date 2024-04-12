@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 610854612108641744}
   - component: {fileID: 7323237231675020280}
   - component: {fileID: 2219175642382697969}
+  - component: {fileID: 3386276251951996408}
+  - component: {fileID: 4244340803104048723}
   m_Layer: 0
   m_Name: Gieok
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850429430245377692}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.042065214, y: -0, z: -0, w: 0.9991149}
+  m_LocalRotation: {x: -0.04206738, y: 0, z: 0, w: 0.9991148}
   m_LocalPosition: {x: 36.407112, y: 15.198557, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3000002, z: 0.3000002}
   m_ConstrainProportionsScale: 0
@@ -130,3 +132,61 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.049995, y: 39.705315}
   m_EdgeRadius: 0
+--- !u!61 &3386276251951996408
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850429430245377692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4.3905587, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 14.4, y: 14.4}
+    newSize: {x: 14.4, y: 14.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 23.181118, y: 14.4}
+  m_EdgeRadius: 0
+--- !u!114 &4244340803104048723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850429430245377692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}

@@ -7,6 +7,7 @@ using Mediapipe.Unity.Sample.HandTracking;
 
 public class KNNPrediction : MonoBehaviour
 {
+    public GameObject player;
     HandTrackingSolution handTrackingSolution; //HandTrackingSolution 클래스의 인스턴스
     float[][] angles; // 학습 데이터의 각도
     int[] labels;     // 학습 데이터의 라벨
@@ -22,7 +23,7 @@ public class KNNPrediction : MonoBehaviour
         // 학습된 모델 로드
         LoadTrainedModelFromResources(modelRelativePath);
     }
-    void Update()
+    private void OnTriggerStay2D(Collider2D player)
     {
         if (handTrackingSolution != null && handTrackingSolution.data.Count > 0)
         {
