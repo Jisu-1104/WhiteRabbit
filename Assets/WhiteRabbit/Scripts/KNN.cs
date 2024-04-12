@@ -63,7 +63,8 @@ public class KNNPrediction : MonoBehaviour
             }
             string temp = modelFile.text.Replace("\r", "");
             string[] lines = temp.Split('\n');
-            int rowCount = lines.Length;
+            int rowCount = lines.Length - 1;
+
 
             // 데이터 배열 초기화
             angles = new float[rowCount][];
@@ -116,8 +117,8 @@ public class KNNPrediction : MonoBehaviour
         int[] v1Indices = { 0, 1, 2, 3, 0, 5, 6, 7, 0, 9, 10, 11, 0, 13, 14, 15, 0, 17, 18, 19 };
         int[] v2Indices = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
-        float[,] v = new float[19, 3];
-        for (int i = 0; i < 19; i++)
+        float[,] v = new float[20, 3];
+        for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 3; j++)
             {
@@ -125,8 +126,8 @@ public class KNNPrediction : MonoBehaviour
             }
         }
 
-        float[,] vNormalized = new float[19, 3];
-        for (int i = 0; i < 19; i++)
+        float[,] vNormalized = new float[20, 3];
+        for (int i = 0; i < 20; i++)
         {
             float norm = (float)Math.Sqrt(v[i, 0] * v[i, 0] + v[i, 1] * v[i, 1] + v[i, 2] * v[i, 2]);
             for (int j = 0; j < 3; j++)
