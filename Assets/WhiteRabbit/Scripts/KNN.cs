@@ -11,6 +11,7 @@ public class KNNPrediction : MonoBehaviour
     HandTrackingSolution handTrackingSolution; //HandTrackingSolution 클래스의 인스턴스
     float[][] angles; // 학습 데이터의 각도
     int[] labels;     // 학습 데이터의 라벨
+    public string alpha;
 
     void Start()
     {
@@ -40,7 +41,11 @@ public class KNNPrediction : MonoBehaviour
                 // 예측 결과 출력
                 string gesture = GetGestureFromLabel(predictedLabel);
                 Debug.Log($"Predicted Gesture: {gesture}");
-
+                if(alpha == gesture)
+                {
+                    Debug.Log(alpha + "Destroyed");
+                    Destroy(gameObject);
+                }
             }
             else
             {
