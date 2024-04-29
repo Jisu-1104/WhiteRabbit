@@ -12,6 +12,7 @@ public class KNNPrediction : MonoBehaviour
     float[][] angles; // 학습 데이터의 각도
     int[] labels;     // 학습 데이터의 라벨
     public string alpha;
+    public string gesture;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class KNNPrediction : MonoBehaviour
                 int predictedLabel = PredictGesture(testData);
 
                 // 예측 결과 출력
-                string gesture = GetGestureFromLabel(predictedLabel);
+                gesture = GetGestureFromLabel(predictedLabel);
                 Debug.Log($"Predicted Gesture: {gesture}");
                 if(alpha == gesture)
                 {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - suwhaObject
   - Global Resource
+  - Point
   layers:
   - Default
   - TransparentFX
