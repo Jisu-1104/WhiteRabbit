@@ -14,6 +14,9 @@ public class ConverationManager : MonoBehaviour
     public GameObject player;
     public GameObject GNDL;
     private string gesture;
+    private bool gestureG = false; // 'ㄱ'을 수행했는지 여부를 나타내는 변수
+    private bool gestureN = false; // 'ㄴ'을 수행했는지 여부를 나타내는 변수
+    private bool gestureD = false; // 'ㄷ'을 수행했는지 여부를 나타내는 변수
 
     private void Start()
     {
@@ -77,31 +80,39 @@ public class ConverationManager : MonoBehaviour
                 lastPoint = collision.gameObject;
                 suwhaImageComponent.sprite = sprite[0];
                 suwhaImage.SetActive(true);
-        
-                if(gesture.Equals("ㄱ"))
-                {
-                    suwhaImageComponent.sprite = sprite[1];
-                    if(gesture.Equals('ㄴ')) 
-                    {
-                        suwhaImageComponent.sprite = sprite[2];
-                        if(gesture.Equals('ㄷ')) 
-                        {
-                            suwhaImageComponent.sprite = sprite[3];
-                            if(gesture.Equals('ㄹ')) 
-                            {
-                                Destroy(GNDL);
-                            }
-                        }
-                    }
-                }
                 break;
             case "GNDLEndPoint":
                 talkText.text = "수고했어! 이제 네 우주선 부품까지 거의 다 왔어.";
                 break;
 
         }
-        
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name == "GNDLPoint")
+        {
+            if (gesture.Equals("ㄱ") && !gestureG)
+            {
+                suwhaImageComponent.sprite = sprite[1];
+                gestureG = true; // 'ㄱ' 수행 표시
+            }
+            else if (gesture.Equals("ㄴ") && gestureG && !gestureN)
+            {
+                suwhaImageComponent.sprite = sprite[2];
+                gestureN = true; // 'ㄴ' 수행 표시
+            }
+            else if (gesture.Equals("ㄷ") && gestureN && !gestureD)
+            {
+                suwhaImageComponent.sprite = sprite[3];
+                gestureD = true; // 'ㄷ' 수행 표시
+            }
+            else if (gesture.Equals("ㄹ") && gestureD)
+            {
+                Destroy(GNDL);
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         conversationPanel.SetActive(false);
