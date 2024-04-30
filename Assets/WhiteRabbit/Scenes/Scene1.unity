@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 15530619}
   - component: {fileID: 15530618}
   - component: {fileID: 15530617}
-  - component: {fileID: 15530621}
   m_Layer: 0
   m_Name: GNDL(3)
   m_TagString: suwhaObject
@@ -377,21 +376,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49009568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.306}
---- !u!114 &15530621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15530616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1545372720}
-  alpha: "\u3139"
-  gesture: 
 --- !u!1 &25791046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,12 +1155,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 328756855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf5940ef2f331043af5ea6e647a1acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1545372720}
-  alpha: "\u3139"
-  gesture: 
+  obsalpha: "\u3139"
 --- !u!1 &348177738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6952628394585513908, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6952628394585513910, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1417,6 +1404,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6952628394585513906, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1545372727}
+    - targetCorrespondingSourceObject: {fileID: 6952628394585513906, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1545372733}
   m_SourcePrefab: {fileID: 100100000, guid: a3dc7dd79a2fbc341a3fc828503f1ca9, type: 3}
 --- !u!1 &430990453
 GameObject:
@@ -1790,7 +1780,6 @@ GameObject:
   - component: {fileID: 559000122}
   - component: {fileID: 559000121}
   - component: {fileID: 559000120}
-  - component: {fileID: 559000124}
   m_Layer: 0
   m_Name: GNDL(2)
   m_TagString: suwhaObject
@@ -1955,21 +1944,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49009568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.306}
---- !u!114 &559000124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559000119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1545372720}
-  alpha: "\u3137"
-  gesture: 
 --- !u!1 &561796823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,7 +4426,6 @@ GameObject:
   - component: {fileID: 935937920}
   - component: {fileID: 935937919}
   - component: {fileID: 935937918}
-  - component: {fileID: 935937922}
   m_Layer: 0
   m_Name: GNDL(1)
   m_TagString: suwhaObject
@@ -4617,21 +4590,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49009568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.306}
---- !u!114 &935937922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935937917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1545372720}
-  alpha: "\u3134"
-  gesture: 
 --- !u!1 &997737612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4909,12 +4867,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1060404769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf5940ef2f331043af5ea6e647a1acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1545372720}
-  alpha: "\u3137"
-  gesture: 
+  obsalpha: "\u3137"
 --- !u!1 &1111176213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5101,12 +5058,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111176213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf5940ef2f331043af5ea6e647a1acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1545372720}
-  alpha: "\u3134"
-  gesture: 
+  obsalpha: "\u3134"
 --- !u!1 &1174750249
 GameObject:
   m_ObjectHideFlags: 0
@@ -26127,7 +26083,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 850429430245377692, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794954368}
   m_SourcePrefab: {fileID: 100100000, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
 --- !u!1001 &1396066811
 PrefabInstance:
@@ -26298,6 +26257,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1462920945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 850429430245377692, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
+  m_PrefabInstance: {fileID: 1385956564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1544887017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8798066379235852099, guid: 5713b959e3c77a58fb258133fc8e4aef, type: 3}
@@ -26395,6 +26359,19 @@ MonoBehaviour:
   lastPoint: {fileID: 0}
   player: {fileID: 1545372720}
   GNDL: {fileID: 1950381501}
+--- !u!114 &1545372733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545372720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gesture: 
 --- !u!1 &1656834078
 GameObject:
   m_ObjectHideFlags: 0
@@ -27004,6 +26981,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 610854612108641744, guid: 5cdd49b51954d4f41b8df333674244f7, type: 3}
   m_PrefabInstance: {fileID: 1385956564}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794954368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462920945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf5940ef2f331043af5ea6e647a1acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1545372720}
+  obsalpha: "\u3131"
 --- !u!4 &1837364218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5535674424067552597, guid: 26114bc9cccb92454a468ea4d41f400a, type: 3}
@@ -27109,7 +27100,6 @@ GameObject:
   - component: {fileID: 1950381504}
   - component: {fileID: 1950381503}
   - component: {fileID: 1950381502}
-  - component: {fileID: 1950381506}
   m_Layer: 0
   m_Name: GNDL(0)
   m_TagString: suwhaObject
@@ -27274,21 +27264,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49009568}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.306}
---- !u!114 &1950381506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950381501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e68fcd12c862c74ba25c26ec05b865b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1545372720}
-  alpha: "\u3131"
-  gesture: 
 --- !u!1 &1961989944
 GameObject:
   m_ObjectHideFlags: 0

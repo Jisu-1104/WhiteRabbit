@@ -13,10 +13,16 @@ public class ConverationManager : MonoBehaviour
     public GameObject lastPoint;
     public GameObject player;
     public GameObject GNDL;
+    private string gesture;
 
     private void Start()
     {
         suwhaImageComponent = suwhaImage.GetComponent<Image>();
+    }
+
+    private void Update()
+    {
+        gesture = player.GetComponent<KNNPrediction>().gesture;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -67,25 +73,27 @@ public class ConverationManager : MonoBehaviour
                 suwhaImage.SetActive(true);
                 break;
             case "GNDLPoint":
-                talkText.text = "큰 몸집이 매력적인 기억니은디귿리을 강아지야. 지화 ㄱㄴㄷㄹ을 해봐.";
+                talkText.text = "큰 몸집이 매력적인 기역니은디귿리을 강아지야. 지화 ㄱㄴㄷㄹ을 순서대로 해봐.";
                 lastPoint = collision.gameObject;
                 suwhaImageComponent.sprite = sprite[0];
                 suwhaImage.SetActive(true);
-                /*
-                if(gesture=='ㄱ')
+        
+                if(gesture.Equals("ㄱ"))
                 {
                     suwhaImageComponent.sprite = sprite[1];
-                    if(gesture=='ㄴ') {
+                    if(gesture.Equals('ㄴ')) 
+                    {
                         suwhaImageComponent.sprite = sprite[2];
-                        if(gesture=='ㄷ') {
+                        if(gesture.Equals('ㄷ')) 
+                        {
                             suwhaImageComponent.sprite = sprite[3];
-                            if(gesture=='ㄹ') {
+                            if(gesture.Equals('ㄹ')) 
+                            {
                                 Destroy(GNDL);
                             }
                         }
                     }
                 }
-                */
                 break;
             case "GNDLEndPoint":
                 talkText.text = "수고했어! 이제 네 우주선 부품까지 거의 다 왔어.";

@@ -4,39 +4,32 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     private bool playerInRange = false; // 플레이어가 범위 내에 있는지 여부를 나타내는 변수
-    public PlayerController playerController;
+    public GameObject player;
     public string obsalpha;
+    private string gesture;
 
     private void Update()
     {
-        if (playerInRange && (playerController.alphabet == obsalpha))
+        gesture = player.GetComponent<KNNPrediction>().gesture;
+        if (playerInRange && (gesture == obsalpha))
         {
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerInRange = true;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerInRange = false;
-        }
-    }
-
-    // 다른 코드에서 호출될 메서드
-    public void DisableObstacle()
-    {
-        if (playerInRange)
-        {
-            gameObject.SetActive(false);
         }
     }
 }
