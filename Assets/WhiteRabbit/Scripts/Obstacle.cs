@@ -16,7 +16,11 @@ public class Obstacle : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    public void Initialize(string value)
+    {
+        obsalpha = value;
+        Debug.Log("Meteor initialized with value: " + value);
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -24,7 +28,6 @@ public class Obstacle : MonoBehaviour
             playerInRange = true;
         }
     }
-
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
