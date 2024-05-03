@@ -5,7 +5,7 @@ using UnityEngine;
 public class IsGroundVisited : MonoBehaviour
 {
     public GameObject player;
-    public GameObject howtoplay;
+    public GameObject startPlay;
     public GameObject npc;
     public PhysicsMaterial2D newMaterial;
     private bool hasCollided = false;
@@ -15,7 +15,7 @@ public class IsGroundVisited : MonoBehaviour
         if (collision.gameObject == player && !hasCollided)
         {
             npc.SetActive(true);
-            howtoplay.SetActive(true);
+            startPlay.SetActive(true);
             hasCollided = true;
         }
     }
