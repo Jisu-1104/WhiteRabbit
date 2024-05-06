@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // TMP_Textë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ë„¤ì„ìŠ¤í˜ì´ìŠ¤
 
 public class MeteorController : MonoBehaviour
 {
-    public GameObject meteorPrefab; // »ı¼ºÇÒ ÇÁ¸®ÆÕ
-    public float spawnY = 0f; // ÇÁ¸®ÆÕÀÇ Y ÁÂÇ¥ (°íÁ¤°ª)
-    public float minX = -10f; // ÃÖ¼Ò X ÁÂÇ¥
-    public float maxX = 10f; // ÃÖ´ë X ÁÂÇ¥
+    public GameObject meteorPrefab; // ìš´ì„ í”„ë¦¬íŒ¹
+    public GameObject[] spawnPoints; // ìš´ì„ ìƒì„± ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸ ë°°ì—´
+    public float spawnInterval = 5f; // ìš´ì„ ìƒì„± ê°„ê²© (ì´ˆ)
 
     private void Start()
     {
@@ -18,34 +17,78 @@ public class MeteorController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f); // 5ÃÊ ±â´Ù¸²
+            yield return new WaitForSeconds(spawnInterval);
 
-            // ·£´ıÇÑ X ÁÂÇ¥ »ı¼º
-            float randomX = Random.Range(minX, maxX);
+            // ëœë¤í•œ ìƒì„± ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸ ì„ íƒ
+            GameObject randomSpawnPoint = GetRandomSpawnPoint();
 
-            // ÇÁ¸®ÆÕ »ı¼º À§Ä¡ ¼³Á¤ (°íÁ¤µÈ Y ÁÂÇ¥, ·£´ıÇÑ X ÁÂÇ¥)
-            Vector3 spawnPosition = new Vector3(randomX, spawnY, 0f);
-
-            // ÇÁ¸®ÆÕ »ı¼º
-            GameObject newMeteor = Instantiate(meteorPrefab, spawnPosition, Quaternion.identity);
-
-            // ÇÁ¸®ÆÕÀÇ Obstacle ½ºÅ©¸³Æ® ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
-            Obstacle obstacleScript = newMeteor.GetComponent<Obstacle>();
-
-            if (obstacleScript != null)
+            if (randomSpawnPoint != null)
             {
-                // obsalpha °ª ·£´ıÀ¸·Î ¼³Á¤
-                string[] possibleAlpha = { "Value1", "Value2", "Value3" }; // ¿øÇÏ´Â °ªÀ¸·Î º¯°æ °¡´É
-                string randomAlpha = possibleAlpha[Random.Range(0, possibleAlpha.Length)];
+                // ì„ íƒëœ ìœ„ì¹˜ì—ì„œ ìš´ì„ ìƒì„±
+                Vector3 spawnPosition = randomSpawnPoint.transform.position;
+                GameObject newMeteor = Instantiate(meteorPrefab, spawnPosition, Quaternion.identity);
 
-                // Obstacle ½ºÅ©¸³Æ®ÀÇ obsalpha º¯¼ö ¼³Á¤
-                obstacleScript.obsalpha = randomAlpha;
-                Debug.Log("Meteor initialized with obsalpha: " + randomAlpha);
+                // MovingMeteor ì»´í¬ë„ŒíŠ¸ í™•ì¸
+                MovingMeteor movingMeteor = newMeteor.GetComponent<MovingMeteor>();
+
+                if (movingMeteor != null)
+                {
+                    // ëœë¤ obsalpha ì„ íƒ
+                    string randomAlpha = GetRandomKoreanCharacter();
+
+                    // MovingMeteor ì»´í¬ë„ŒíŠ¸ì˜ obsalpha ì„¤ì •
+                    movingMeteor.obsalpha = randomAlpha;
+                    Debug.Log($"ìš´ì„ì´ obsalpha ê°’ {randomAlpha}ìœ¼ë¡œ ì´ˆê¸°í™”ë˜ì—ˆìŠµë‹ˆë‹¤.");
+
+                    // ìš´ì„ì˜ ìì‹ ì˜¤ë¸Œì íŠ¸ì—ì„œ TMP_Text ì»´í¬ë„ŒíŠ¸ ì°¾ê¸°
+                    TMP_Text tmpText = newMeteor.GetComponentInChildren<TMP_Text>();
+
+                    if (tmpText != null)
+                    {
+                        // TMP_Text ì»´í¬ë„ŒíŠ¸ì˜ í…ìŠ¤íŠ¸ ê°’ì„ randomAlphaë¡œ ì„¤ì •
+                        tmpText.text = randomAlpha;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("ìš´ì„ ìì‹ ì˜¤ë¸Œì íŠ¸ì—ì„œ TMP_Text ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("ìš´ì„ í”„ë¦¬íŒ¹ì— í•„ìš”í•œ MovingMeteor ì»´í¬ë„ŒíŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
+                }
             }
             else
             {
-                Debug.LogWarning("Meteor prefab does not have the required Obstacle component.");
+                Debug.LogWarning("ìš´ì„ ìƒì„± ìœ„ì¹˜ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             }
         }
+    }
+
+    GameObject GetRandomSpawnPoint()
+    {
+        if (spawnPoints != null && spawnPoints.Length > 0)
+        {
+            // ëœë¤í•˜ê²Œ ìƒì„± ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸ ì„ íƒ
+            return spawnPoints[Random.Range(0, spawnPoints.Length)];
+        }
+        else
+        {
+            Debug.LogWarning("ìš´ì„ ìƒì„± ìœ„ì¹˜ ì˜¤ë¸Œì íŠ¸ê°€ ì„¤ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
+            return null;
+        }
+    }
+
+    string GetRandomKoreanCharacter()
+    {
+        // í•œê¸€ ììŒ/ëª¨ìŒ ë°°ì—´
+        string[] possibleAlpha = {
+            "ã„±", "ã„´", "ã„·", "ã„¹", "ã…", "ã…‚", "ã……", "ã…‡", "ã…ˆ", "ã…Š", "ã…‹", "ã…Œ",
+            "ã…", "ã…", "ã…", "ã…‘", "ã…“", "ã…•", "ã…—", "ã…›", "ã…œ", "ã… ", "ã…¡", "ã…£",
+            "ã…", "ã…’", "ã…”", "ã…–", "ã…š", "ã…Ÿ", "ã…¢"
+        };
+
+        // ëœë¤í•˜ê²Œ ì„ íƒëœ í•œê¸€ ììŒ/ëª¨ìŒ ë°˜í™˜
+        return possibleAlpha[Random.Range(0, possibleAlpha.Length)];
     }
 }

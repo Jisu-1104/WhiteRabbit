@@ -11,6 +11,7 @@ public class KNNPrediction : MonoBehaviour
     float[][] angles; // 학습 데이터의 각도
     int[] labels;     // 학습 데이터의 라벨
     public string gesture;
+    public bool scene2 = false;
 
     void Start()
     {
@@ -23,9 +24,37 @@ public class KNNPrediction : MonoBehaviour
         // 학습된 모델 로드
         LoadTrainedModelFromResources(modelRelativePath);
     }
+    void Update()
+    {
+        if (scene2) {
+            if (handTrackingSolution != null && handTrackingSolution.data.Count > 0)
+            {
+                string lmDataString = handTrackingSolution.GetLmDataString();
+
+                if (lmDataString != null)
+                {
+                    // 가져온 데이터를 각도로 계산
+                    float[] testData = ProcessLandmarkData(lmDataString);
+
+                    // 예측 수행
+                    int predictedLabel = PredictGesture(testData);
+
+                    // 예측 결과 출력
+                    gesture = GetGestureFromLabel(predictedLabel);
+                    Debug.Log($"Predicted Gesture: {gesture}");
+                }
+                else
+                {
+                    Debug.LogWarning("No data available in HandTrackingSolution.");
+                }
+            }
+        }
+    }
+
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("suwhaObject"))
+        if (collision.CompareTag("suwhaObject")&&!scene2)
         {
             if (handTrackingSolution != null && handTrackingSolution.data.Count > 0)
             {
