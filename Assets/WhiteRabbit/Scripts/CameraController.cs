@@ -9,7 +9,7 @@ namespace Platformer
         public float damping = 1.5f; // movement speed
         public Vector2 offset = new Vector2(0f, 0f); // special effect if you want the character to be not in center of screen
         public bool faceLeft; //  mirror reflection of OFFSET along the y axis
-        private Transform player;
+        public Transform player;
         private int lastX;
         void Start () {
             offset = new Vector2(Mathf.Abs(offset.x), offset.y);
