@@ -19,6 +19,9 @@ public class SceneSwitcher : MonoBehaviour
                 SceneManager.LoadScene("Scene1");
                 break;
             case "Scene1":
+                SceneManager.LoadScene("Epilogue");
+                break;
+            case "Epilogue":
                 SceneManager.LoadScene("Scene2");
                 break;
             case "Scene2":

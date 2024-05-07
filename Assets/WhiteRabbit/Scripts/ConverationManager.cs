@@ -115,11 +115,25 @@ public class ConverationManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        conversationPanel.SetActive(false);
-        suwhaImage.SetActive(false);
+        // conversationPanel이나 suwhaImage가 null이 아닌지 확인
+        if (conversationPanel != null)
+        {
+            conversationPanel.SetActive(false);
+        }
+        if (suwhaImage != null)
+        {
+            suwhaImage.SetActive(false);
+        }
+
+        // 충돌한 오브젝트가 Point 태그를 가진 경우
         if (collision.CompareTag("Point"))
         {
-            collision.gameObject.SetActive(false);
+            // 충돌한 게임 오브젝트가 null이 아닌지 확인
+            if (collision.gameObject != null)
+            {
+                // 게임 오브젝트를 비활성화
+                collision.gameObject.SetActive(false);
+            }
         }
     }
 

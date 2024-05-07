@@ -10,7 +10,8 @@ public class PrologueManager : MonoBehaviour
     public GameObject conversationPanel;
     public Text talkText;
     public GameObject npc; public GameObject npc1; public GameObject npc2; public GameObject npc3; public GameObject npc4;
-
+    private Color blackcolor = Color.black;
+    private Color whitecolor = Color.white;
 
     public int currentDialogueIndex = 0; // 현재 대사 인덱스
     private string[] dialogues = {
@@ -26,23 +27,25 @@ public class PrologueManager : MonoBehaviour
         "그 물체는 아마 저 외지인이 타고 온 물건에서 떨어졌을 거에요. \n뭔지도 모르는 물건이니, 외지인이 옮기게 합시다.",//10
         "나는 필사적으로 내가 옮기겠다는 것을 표현했다. \n주민들이 잘못된 방법으로 옮겼다가는 고장이 날 수도 있으니.", //11
         "자기가 옮기겠다는 것 같은데요?", //12
-        "좋아. 내일 아침에 출발할테니 여기서 기다려.", //13
+        "좋아. 그럼 내일 아침에 출발하자.", //13
         "내가 고개를 끄덕이자 원주민들은 풀숲으로 사라졌다.", //14
         "내일부터는 본격적으로 이 행성을 탐험해야 한다.",
         "나에게 우주의 가호가 있기를...",
-        "조난 1일차 일지 끝"
+        "조난 0일차 일지 끝"
     }; // 변경될 대사들
 
     // Start is called before the first frame update
     void Start()
     {
+        blackcolor.a = 0.6f;
+        whitecolor.a = 0.6f;
         Invoke("ActivatePlayerObject", 2.0f); // 2초 뒤에 ActivatePlayerObject 함수 호출
     }
     void ActivatePlayerObject()
     {
         player.SetActive(true); // 플레이어 오브젝트 활성화
         Image panelRenderer = conversationPanel.GetComponent<Image>();
-        panelRenderer.color = Color.black;
+        panelRenderer.color = blackcolor;
         talkText.color = Color.white;
         conversationPanel.SetActive(true); //대사창 활성화
         talkText.text = "언어 분류 중...";
@@ -65,7 +68,7 @@ public class PrologueManager : MonoBehaviour
             {
                 conversationPanel.SetActive(false);
                 player.GetComponent<Rigidbody2D>().AddForce(transform.up * 6, ForceMode2D.Impulse);
-                panelRenderer.color = Color.white;
+                panelRenderer.color = whitecolor;
                 talkText.color = Color.black;
                 Invoke("ActivatePanel", 1f);
             }
@@ -74,23 +77,23 @@ public class PrologueManager : MonoBehaviour
                 conversationPanel.SetActive(false);
                 npc.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 2.0f, ForceMode2D.Impulse);
                 Invoke("StopMovement", 1.0f);
-                panelRenderer.color = Color.white;
+                panelRenderer.color = whitecolor;
                 talkText.color = Color.black;
                 conversationPanel.SetActive(true);
             }
             if (currentDialogueIndex == 10)
             {
-                panelRenderer.color = Color.black;
+                panelRenderer.color = blackcolor;
                 talkText.color = Color.white;
             }
             if (currentDialogueIndex == 11)
             {
-                panelRenderer.color = Color.white;
+                panelRenderer.color = whitecolor;
                 talkText.color = Color.black;
             }
             if (currentDialogueIndex == 13)
             {
-                panelRenderer.color = Color.black;
+                panelRenderer.color = blackcolor;
                 talkText.color = Color.white;
                 npc.SetActive(false); npc1.SetActive(false); npc2.SetActive(false); npc3.SetActive(false); npc4.SetActive(false);
             }
