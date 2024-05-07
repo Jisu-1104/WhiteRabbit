@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/WhiteRabbit/Scenes/Scene1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/WhiteRabbit/Scenes/Epilogue.unity
+    guid: 115cdcec8fd46a344b11420c5347ecd1
+  - enabled: 1
     path: Assets/WhiteRabbit/Scenes/Scene2.unity
     guid: f5de8a494a893b64b9964d9b24cda8d5
   - enabled: 1
