@@ -48,7 +48,7 @@ public class ConverationManager : MonoBehaviour
                 talkText.text = "네가 우리 별의 생명들을 존중한다면 그들도 너를 도와줄거야.";
                 break;
             case "GieokPoint":
-                talkText.text = "기억 풀이야. 지화 ㄱ을 해봐.";
+                talkText.text = "기역 풀이야. 지화 ㄱ을 해봐.";
                 suwhaImageComponent.sprite = sprite[0];
                 suwhaImage.SetActive(true);
                 lastPoint = collision.gameObject;
