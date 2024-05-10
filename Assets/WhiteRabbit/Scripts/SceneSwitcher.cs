@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     public GameObject player;
+    public GameObject HP;
     public void SwitchSceneBasedOnCurrentScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -25,7 +26,10 @@ public class SceneSwitcher : MonoBehaviour
                 SceneManager.LoadScene("Scene2");
                 break;
             case "Scene2":
-                SceneManager.LoadScene("ending");
+                SceneManager.LoadScene("StartScene");
+                break;
+            case "ending":
+                SceneManager.LoadScene("StartScene");
                 break;
 
             default:
@@ -40,5 +44,11 @@ public class SceneSwitcher : MonoBehaviour
         {
             SwitchSceneBasedOnCurrentScene();
         }
+    }
+
+    public void QuitGame()
+    {
+        // 게임 종료
+        Application.Quit();
     }
 }

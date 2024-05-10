@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isPlayerDead = false;
 
     private void Start()
     {
@@ -24,8 +25,8 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died!");
-        // 플레이어 사망 시 처리할 로직을 추가할 수 있습니다.
-        gameObject.SetActive(false); // 플레이어 오브젝트 비활성화 등
+        isPlayerDead = true;
+        gameObject.SetActive(false);
     }
 
     // 현재 체력을 반환하는 메서드
