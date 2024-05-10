@@ -217,6 +217,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8058081683288728235, guid: c204361809a392143ae4670352135ea7, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 97693099}
+    - targetCorrespondingSourceObject: {fileID: 8058081683288728235, guid: c204361809a392143ae4670352135ea7, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 97693093}
     - targetCorrespondingSourceObject: {fileID: 8058081683288728235, guid: c204361809a392143ae4670352135ea7, type: 3}
       insertIndex: -1
@@ -312,6 +315,26 @@ MonoBehaviour:
   targetTag: suwhaObject
   damageAmount: 10
   playerHealth: {fileID: 97693097}
+--- !u!114 &97693099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97693092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b367f8aafca70f49ba129df11af2025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: 0
+  rotate: 0
+  transform: {fileID: 97693101}
+--- !u!4 &97693101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1902231424621346789, guid: c204361809a392143ae4670352135ea7, type: 3}
+  m_PrefabInstance: {fileID: 97693091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &167421345
 GameObject:
   m_ObjectHideFlags: 0
