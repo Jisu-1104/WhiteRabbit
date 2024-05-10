@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  HP: {fileID: 0}
 --- !u!224 &8670727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4713,6 +4714,7 @@ MonoBehaviour:
   damping: 1.5
   offset: {x: 0, y: 2}
   faceLeft: 0
+  player: {fileID: 0}
 --- !u!1 &537245495
 GameObject:
   m_ObjectHideFlags: 0
