@@ -12,6 +12,10 @@ public class ConverationManager : MonoBehaviour
     public Text talkText;
     public GameObject lastPoint;
     public GameObject player;
+    public GameObject giyeok;
+    public GameObject nieon;
+    public GameObject digeod;
+    public GameObject lieol;
     public GameObject GNDL;
     private string gesture;
     private bool gestureG = false; // 'ㄱ'을 수행했는지 여부를 나타내는 변수
@@ -125,14 +129,46 @@ public class ConverationManager : MonoBehaviour
             suwhaImage.SetActive(false);
         }
 
-        // 충돌한 오브젝트가 Point 태그를 가진 경우
         if (collision.CompareTag("Point"))
         {
             // 충돌한 게임 오브젝트가 null이 아닌지 확인
             if (collision.gameObject != null)
             {
-                // 게임 오브젝트를 비활성화
-                collision.gameObject.SetActive(false);
+                // 충돌한 게임 오브젝트의 이름을 확인
+                string objectName = collision.gameObject.name;
+
+                if(objectName.Equals("GieokPoint"))
+                {
+                    if(giyeok == null)
+                    {
+                        collision.gameObject.SetActive(false);
+                    }
+                }
+                else if (objectName.Equals("NieonPoint"))
+                {
+                    if (nieon == null)
+                    {
+                        collision.gameObject.SetActive(false);
+                    }
+                }
+                else if (objectName.Equals("DigeodPoint"))
+                {
+                    if (digeod == null)
+                    {
+                        collision.gameObject.SetActive(false);
+                    }
+                }
+                else if (objectName.Equals("LieolPoint"))
+                {
+                    if (lieol == null)
+                    {
+                        collision.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    collision.gameObject.SetActive(false);
+                }
             }
         }
     }

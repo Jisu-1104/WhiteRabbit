@@ -859,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  HP: {fileID: 0}
 --- !u!1 &198956084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,6 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1545372720}
+  HP: {fileID: 0}
 --- !u!1 &627358352
 GameObject:
   m_ObjectHideFlags: 0
@@ -26096,6 +26098,10 @@ MonoBehaviour:
   talkText: {fileID: 899860353}
   lastPoint: {fileID: 0}
   player: {fileID: 1545372720}
+  giyeok: {fileID: 1462920945}
+  nieon: {fileID: 1111176213}
+  digeod: {fileID: 1060404769}
+  lieol: {fileID: 328756855}
   GNDL: {fileID: 1950381501}
 --- !u!114 &1545372733
 MonoBehaviour:

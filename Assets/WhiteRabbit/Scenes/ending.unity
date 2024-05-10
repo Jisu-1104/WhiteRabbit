@@ -870,10 +870,9 @@ MonoBehaviour:
     m_LineSpacing: 2
   m_Text: "\uD50C\uB808\uC774 \uD574\uC8FC\uC154\uC11C \uAC10\uC0AC\uD569\uB2C8\uB2E4!\n\n\uC774\uD654\uC5EC\uC790\uB300\uD559\uAD50
     \uCEA1\uC2A4\uD1A4\uB514\uC790\uC778 \uC218\uC5C5\n\uD300 40 \uD770\uD1A0\uB07C\n\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC   
-    2117009 \uAE40\uC9C0\uC218\r\n\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC    2071029
-    \uC2E0\uC18C\uD604\r\n\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC    2071085 TAN JIALI
-    \n\n\uC0AC\uC6A9\uD55C Asset\n- Goldmetal \n- MediapipeUnity\n- 2D Platformer\n-
-    2DCartoonJunglePack\n- Dinv\n\nSpecial Thanks to\n\uC774\uB098\uC5F0(\uC6B0\uC8FC\uC120
+    \uAE40\uC9C0\uC218\r\n\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC    \uC2E0\uC18C\uD604\r\n\uCEF4\uD4E8\uD130\uACF5\uD559\uACFC   
+    TAN JIALI \n\n\uC0AC\uC6A9\uD55C Asset\n- Goldmetal \n- MediapipeUnity\n- 2D
+    Platformer\n- 2DCartoonJunglePack\n- Dinv\n\nSpecial Thanks to\n\uC774\uB098\uC5F0(\uC6B0\uC8FC\uC120
     \uB4F1 \uADF8\uB9BC \uC81C\uACF5)"
 --- !u!222 &1219630924
 CanvasRenderer:
