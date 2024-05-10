@@ -18,11 +18,7 @@ public class KNNPrediction : MonoBehaviour
         // HandTrackingSolution 클래스의 인스턴스 찾기
         handTrackingSolution = FindObjectOfType<HandTrackingSolution>();
 
-        // 상대 경로를 사용하여 모델 파일의 경로를 설정합니다.
-        string modelRelativePath = @"Assets/WhiteRabbit/Scripts/python/dataset.txt";
-
-        // 학습된 모델 로드
-        LoadTrainedModelFromResources(modelRelativePath);
+        LoadTrainedModelFromResources("dataset");
     }
     void Update()
     {
@@ -80,21 +76,19 @@ public class KNNPrediction : MonoBehaviour
         }
     }
 
-    private void LoadTrainedModelFromResources(string modelFilePath)
+    private void LoadTrainedModelFromResources(string modelName)
     {
-        
         try
         {
-            TextAsset modelFile = AssetDatabase.LoadAssetAtPath<TextAsset>(modelFilePath);
+            TextAsset modelFile = Resources.Load<TextAsset>(modelName);
             if (modelFile == null)
             {
-                Debug.LogError($"Failed to load model file: {modelFilePath}");
+                Debug.LogError($"Failed to load model file: {modelName}");
                 return;
             }
             string temp = modelFile.text.Replace("\r", "");
             string[] lines = temp.Split('\n');
             int rowCount = lines.Length - 1;
-
 
             // 데이터 배열 초기화
             angles = new float[rowCount][];
@@ -118,7 +112,7 @@ public class KNNPrediction : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Failed to load the trained model: {e}");        
+            Debug.LogError($"Failed to load the trained model: {e}");
         }
     }
 

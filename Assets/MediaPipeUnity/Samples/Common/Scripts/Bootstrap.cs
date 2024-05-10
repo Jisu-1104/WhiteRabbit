@@ -24,7 +24,10 @@ namespace Mediapipe.Unity.Sample
 
     private IEnumerator Init()
     {
-      Debug.Log("The configuration for the sample app can be modified using AppSettings.asset.");
+        Debug.Log("Requesting camera access permission...");
+        yield return RequestCameraPermission();
+
+        Debug.Log("The configuration for the sample app can be modified using AppSettings.asset.");
 #if !DEBUG && !DEVELOPMENT_BUILD
       Debug.LogWarning("Logging for the MediaPipeUnityPlugin will be suppressed. To enable logging, please check the 'Development Build' option and build.");
 #endif
@@ -89,7 +92,21 @@ namespace Mediapipe.Unity.Sample
       isFinished = true;
     }
 
-    private void DecideInferenceMode()
+        private IEnumerator RequestCameraPermission()
+        {
+            // 카메라 액세스 권한 요청
+            yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+            if (Application.HasUserAuthorization(UserAuthorization.WebCam))
+            {
+                Debug.Log("Camera access permission granted.");
+            }
+            else
+            {
+                Debug.LogError("Failed to get camera access permission.");
+            }
+        }
+
+        private void DecideInferenceMode()
     {
 #if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
       if (_appSettings.preferableInferenceMode == InferenceMode.GPU) {
