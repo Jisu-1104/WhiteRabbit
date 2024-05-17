@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/WhiteRabbit/Scenes/StartScene.unity
     guid: 76f5873193f821f4c841a9872e23efd4
   - enabled: 1
+    path: Assets/WhiteRabbit/Scenes/Intro.unity
+    guid: c3c89adf04b0b264eb2fdcc218732f28
+  - enabled: 1
     path: Assets/WhiteRabbit/Scenes/Prologue.unity
     guid: e37559f33c14c5747ac0473148826df4
   - enabled: 1

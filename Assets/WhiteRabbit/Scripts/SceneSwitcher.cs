@@ -14,6 +14,9 @@ public class SceneSwitcher : MonoBehaviour
         switch (sceneName)
         {
             case "StartScene":
+                SceneManager.LoadScene("Intro");
+                break;
+            case "Intro":
                 SceneManager.LoadScene("Prologue");
                 break;
             case "Prologue":

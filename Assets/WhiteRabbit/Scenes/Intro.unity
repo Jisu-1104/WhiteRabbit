@@ -678,6 +678,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 388a608f1138ed842a10039361a8668d, type: 3}
   - {fileID: 21300000, guid: c382e84ccb246fe4f87ae1e9b4205d11, type: 3}
   - {fileID: 21300000, guid: 4887bd903a95b44489f134452ae53756, type: 3}
+  - {fileID: 21300000, guid: 4887bd903a95b44489f134452ae53756, type: 3}
   currentSprite: 0
 --- !u!4 &1239603735
 Transform:

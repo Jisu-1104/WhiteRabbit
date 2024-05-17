@@ -26091,10 +26091,10 @@ MonoBehaviour:
   conversationPanel: {fileID: 1181928081}
   suwhaImage: {fileID: 997737612}
   sprite:
-  - {fileID: 21300000, guid: 79be6a2e46864a54eb73930b35895716, type: 3}
-  - {fileID: 21300000, guid: ec08997b7f1dc1e479de7d81c13a3ee1, type: 3}
-  - {fileID: 21300000, guid: e9901aba9951459499f2e28a3cf9a14e, type: 3}
-  - {fileID: 21300000, guid: 586b086d2c2b0b34d8a82583371ae0da, type: 3}
+  - {fileID: 21300000, guid: 8b748e4be390a6a4eb20e905cc720adf, type: 3}
+  - {fileID: 21300000, guid: f9205075d1f7d26479d0d052b03e16c4, type: 3}
+  - {fileID: 21300000, guid: 40a1ea892e9ccc44cab4952dee7e36c0, type: 3}
+  - {fileID: 21300000, guid: 05ab66a490c243c44963d8f52b0f70f6, type: 3}
   talkText: {fileID: 899860353}
   lastPoint: {fileID: 0}
   player: {fileID: 1545372720}

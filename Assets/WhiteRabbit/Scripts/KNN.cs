@@ -197,7 +197,7 @@ public class KNNPrediction : MonoBehaviour
     {
         try
         {
-            int k = 3; // KNN의 k 값 설정
+            int k = 5; // KNN의 k 값 설정
             int[] nearestIndices = new int[k];
             float[] nearestDistances = new float[k];
             for (int i = 0; i < k; i++)
