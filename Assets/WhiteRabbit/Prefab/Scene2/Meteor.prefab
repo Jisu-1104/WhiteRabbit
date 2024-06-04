@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1ca997c18466c49a3cb896811b595a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1.4
   targetObject: {fileID: 8058081683288728235, guid: c204361809a392143ae4670352135ea7, type: 3}
   obsalpha: 
   spriteTransform: {fileID: 9136814400816312097}
