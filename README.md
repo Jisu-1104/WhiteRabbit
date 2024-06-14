@@ -12,7 +12,7 @@ Dynamic Space Background Lite by DinV Studio <https://assetstore.unity.com/packa
 언데드 서바이버 에셋 팩 by Golemetal <https://assetstore.unity.com/packages/2d/undead-survivor-assets-pack-238068>
 
 
-# How to Install
+# How to Install (Window only)
 
 ## 설치 조건
 
@@ -64,7 +64,7 @@ WINSDK_FULL_VERSION은 Visual Studio Installer에서 아까 설치한 SDK의 괄
 
 pip install numpy
 
-4. https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide로 이동하여 code를 컴퓨터 안에 저장해준다.
+4. <https://github.com/homuler/MediaPipeUnityPlugin>로 이동하여 code를 컴퓨터 안에 저장해준다.
 
 5. code를 저장한 위치로 이동하여 다음 코드를 입력한다.
 
