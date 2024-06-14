@@ -70,9 +70,7 @@ pip install numpy
 
 python build.py build --desktop cpu --opencv=cmake -v
 
-이동하는 방법 :: 1) 저장한 위치를 파일 탐색기를 통해 열어 주소를 복사한다.
-
-                2) cmd에 cd 복사한 주소 입력한다.
+이동하는 방법 :: 1) 저장한 위치를 파일 탐색기를 통해 열어 주소를 복사한다. 2) cmd에 cd 복사한 주소 입력한다.
 
 
 # How to build
