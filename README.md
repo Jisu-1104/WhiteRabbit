@@ -1,10 +1,18 @@
+# Used open source
+MediapipeUnityPlugin <https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide>
+2D Platformer by Artyom Zagorskiy <https://assetstore.unity.com/packages/tools/game-toolkits/2d-platformer-229878>
+Dynamic Space Background Lite by DinV Studio <https://assetstore.unity.com/packages/2d/textures-materials/dynamic-space-background-lite-104606>
+2D Cartoon Jungle Pack by Marta Maksymiec <https://assetstore.unity.com/packages/2d/environments/2d-cartoon-jungle-pack-103170>
+탑다운 2D RPG 에셋 팩 by Goldmetal <https://assetstore.unity.com/packages/2d/characters/top-down-2d-rpg-assets-pack-188718>
+언데드 서바이버 에셋 팩 by Golemetal <https://assetstore.unity.com/packages/2d/undead-survivor-assets-pack-238068>
+
 # How to Install
 
 ## 설치 조건
 
 python 3.9 이상
 
-Bazelisk <- Bazel이면 안 되는 것 같다. tools를 찾지 못한다는 에러메세지가 뜨는데, tools 파일은 bazel만 설치할 때는 다운로드 되지 않는다.
+Bazelisk <- Bazel이면 안 된다. tools를 찾지 못한다는 에러메세지가 뜨는데, tools 파일은 bazel만 설치할 때는 다운로드 되지 않는다.
 
 NuGet : version 상관 없음
 
@@ -27,10 +35,10 @@ Visual Studio Install에서 C++을 사용한 데스크톱 개발, SDK 추가 설
 
     msys2를 실행하여 다음 코드를 입력한다.
 
-pacman -S git patch unzip
+    pacman -S git patch unzip
  
 
-2. cmd를 켜 Bazel 변수를 설정한다.
+2. cmd를 켜 다음 코드를 입력해 Bazel 변수를 설정한다.
 
 set BAZEL_VS=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools
 
@@ -63,7 +71,7 @@ python build.py build --desktop cpu --opencv=cmake -v
 
 # How to build
 
-Unity 2022.03.13f1 을 설치하고 우리의 code를 저장하여 실행한다. 
+Unity 2022.03.13f1 을 설치하고 우리의 git repository를 저장하여 실행한다. 
 
 # How to test
 
